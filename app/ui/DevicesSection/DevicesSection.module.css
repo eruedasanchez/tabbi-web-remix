@@ -1,0 +1,53 @@
+.devicesSection {
+    width: 100%;
+    display: grid;
+    padding: 15px 26px 100px 26px;
+    place-items: center;
+    background: var(--white);
+}
+
+.container {
+    gap: 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pageHero {
+    gap: 16px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pageTitle {
+    font: normal 600 16px/150% "Inter";
+    color: var(--primary);
+}
+
+.title {
+    font: normal 700 48px/120% "Inter";
+    color: var(--black);
+}
+
+.text {
+    font: normal 400 18px/150% "Inter";
+    color: #5c5e69;
+}
+
+.children {
+    gap: 12px;
+    height: 338px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding-block: 10px;
+    justify-content: center;
+}
+
+@media (min-width: 900px) {
+    .devicesSection {
+        padding: 105px 114px;
+    }
+}

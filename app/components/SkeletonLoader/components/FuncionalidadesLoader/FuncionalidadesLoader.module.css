@@ -1,0 +1,87 @@
+@keyframes pulse {
+    0% {
+        background-color: #f0f0f0;
+    }
+    50% {
+        background-color: #e4e4e4;
+    }
+    100% {
+        background-color: #f0f0f0;
+    }
+}
+
+.funcionalityContainer {
+    width: 100%;
+}
+
+.skeletonBlock,
+.skeletonTitle,
+.skeletonParagraph,
+.skeletonList,
+.skeletonImage {
+    border-radius: 8px;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.functionalityHero {
+    background: linear-gradient(to right bottom, #fff8f7, #fff4f2);
+    padding-block: 44px;
+}
+
+.h1Block {
+    width: 60%;
+    height: 42px;
+    margin-bottom: 16px;
+}
+
+.pBlock {
+    width: 80%;
+    height: 22px;
+}
+
+.sectionRow,
+.sectionRowReverse {
+    background: var(--white);
+    padding: 60px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sectionRow:nth-child(even),
+.sectionRowReverse:nth-child(even) {
+    background: var(--primary-10);
+}
+
+.skeletonTitle {
+    width: 50%;
+    height: 28px;
+}
+
+.skeletonParagraph {
+    width: 90%;
+    height: 20px;
+}
+
+.skeletonList {
+  width: 60%;
+  height: 16px;
+  margin-top: 8px;
+}
+
+.skeletonImage {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: #e4e4e4;
+}
+
+.endBanner {
+  background: var(--Neutral-Silver, #f5f7fa);
+  padding: 100px 20px;
+}
+
+.endBanner .skeletonTitle {
+  width: 70%;
+  height: 48px;
+  margin-inline: auto;
+}

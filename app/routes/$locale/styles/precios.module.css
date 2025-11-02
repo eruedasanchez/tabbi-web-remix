@@ -1,0 +1,29 @@
+.priceHero {
+    background-image: linear-gradient(
+        to right bottom,
+        #fffaf8,
+        #fff6f3,
+        #fff2ed,
+        #ffefe8,
+        #ffebe3,
+        #ffeae2,
+        #ffeae1,
+        #ffe9e0,
+        #ffebe3,
+        #ffede7,
+        #fff0ea,
+        #fff2ed
+    );
+}
+
+.pricePage {
+    width: 100%;
+}
+
+.priceHero div:has(img) {
+    background: transparent;
+}
+
+.pricePage > section > article > div:last-of-type > div {
+    background: transparent;
+}

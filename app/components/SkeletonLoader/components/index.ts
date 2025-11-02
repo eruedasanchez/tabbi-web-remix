@@ -1,0 +1,5 @@
+export { default as DefaultLoader } from "./DefaultLoader/DefaultLoader"
+export { default as FuncionalidadesLoader } from "./FuncionalidadesLoader/FuncionalidadesLoader"
+export { default as HardwareLoader } from "./HardwareLoader/HardwareLoader"
+export { default as HomeLoader } from "./HomeLoader/HomeLoader"
+export { default as PreciosLoader } from "./PreciosLoader/PreciosLoader"

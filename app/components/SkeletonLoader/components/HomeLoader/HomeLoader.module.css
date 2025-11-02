@@ -1,0 +1,84 @@
+.home .homeHero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.home .heroImg {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+}
+
+.home .heroTitle {
+    width: 40%;
+    height: 28px;
+}
+
+.home .heroButton {
+    width: 150px;
+    height: 40px;
+    border-radius: 6px;
+}
+
+.home .productSection {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.home .productImg {
+    width: 100%;
+    height: 160px;
+    border-radius: 10px;
+}
+
+.home .productText {
+    width: 70%;
+    height: 18px;
+}
+
+.home .productButton {
+    width: 130px;
+    height: 36px;
+    border-radius: 6px;
+}
+
+.home .aboutSection,
+.home .integrationsSection {
+    display: flex;
+    gap: 20px;
+}
+
+.home .aboutImg {
+    flex: 1;
+    height: 140px;
+}
+
+.home .aboutText {
+    flex: 1;
+    height: 80px;
+}
+
+.home .integrationItem {
+    flex: 1;
+    height: 80px;
+}
+
+.home .endBanner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.home .endText {
+    width: 60%;
+    height: 20px;
+}
+
+.home .endButton {
+    width: 150px;
+    height: 40px;
+}

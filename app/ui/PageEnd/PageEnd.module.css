@@ -1,0 +1,31 @@
+.pageEnd {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding: 103px 280px;
+    background: var(--Neutral-Silver, #f5f7fa);
+}
+
+.container {
+    gap: 32px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container h4 {
+    font: normal 600 64px/76px "Inter";
+    color: var(--black);
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .pageEnd {
+        padding: 64px 24px;
+    }
+
+    .container h4 {
+        font: normal 600 40px/48px "Inter";
+    }
+}

@@ -1,0 +1,66 @@
+.hardwareContainer {
+    width: 100%;
+}
+
+.skeletonBlock {
+    border-radius: 8px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #f7f7f7 50%, #f0f0f0 75%);
+    background-size: 400% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+.h1Block {
+    width: 60%;
+    height: 48px;
+}
+
+.h2Block {
+    width: 50%;
+    height: 36px;
+}
+
+.h3Block {
+    width: 40%;
+    height: 28px;
+}
+
+.pBlock {
+    width: 70%;
+    height: 20px;
+}
+
+.deviceCardBlock {
+    width: 240px;
+    height: 320px;
+    border-radius: 16px;
+}
+
+.skeletonList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skeletonLine {
+    width: 200px;
+    height: 14px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #f7f7f7 50%, #f0f0f0 75%);
+    background-size: 400% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -400px 0;
+    }
+    100% {
+        background-position: 400px 0;
+    }
+}
+
+.devicesPlaceholder {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
