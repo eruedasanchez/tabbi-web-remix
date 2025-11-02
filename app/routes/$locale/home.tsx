@@ -4,10 +4,12 @@ import { getTranslations } from "~/i18n"
 import { Button, SkeletonLoader } from "~/components"
 import { PageHero, Banner, PageSection, About, Integrations, PageEnd } from "~/ui"
 import type { HomeData } from "~/types/Home"
+import type { LoaderFunctionArgs } from "@remix-run/node"
 
 import productAsset from "../../assets/home/product.webp"
 import homeAsset from "../../assets/home/home.webp"
 import style from "./styles/home.module.css"
+
 
 export async function loader() {
     const data = await getHomeData()
@@ -65,10 +67,34 @@ const Home = () => {
 
 export default Home
 
-export const meta = () => {
-    const { locale: currentLocale } = useParams()
+export const meta = (context: LoaderFunctionArgs) => {
+    const { params } = context
+    const { locale: currentLocale } = params
+    
     const locale = currentLocale || 'es' 
     const { t } = getTranslations(locale)
     
-    return [{ title: t("home.homeTitle") }]
+    const pageTitle = t("home.title")
+    const pageDescription = t("home.metaDescription")
+    
+    const BASE_URL = process.env.PUBLIC_BASE_URL || 'https://tu-dominio-produccion.com'
+    const canonicalUrl = `${BASE_URL}/${locale}/`
+    const pageImage = `${BASE_URL}/assets/images/social-preview.jpg`
+    
+    return [
+        { title: pageTitle },
+        { name: "description", content: pageDescription },
+        { tagName: "link", rel: "canonical", href: canonicalUrl },
+        { property: "og:title", content: pageTitle },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: canonicalUrl },
+        { property: "og:description", content: pageDescription },
+        { property: "og:image", content: pageImage },
+        { property: "og:locale", content: locale },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:site", content: "@eruedasanchez" },
+        { name: "twitter:title", content: pageTitle },
+        { name: "twitter:description", content: pageDescription },
+        { name: "twitter:image", content: pageImage }
+    ]
 }

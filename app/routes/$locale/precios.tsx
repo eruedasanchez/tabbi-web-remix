@@ -11,6 +11,7 @@ import {
     Plans 
 } from "~/ui"
 import { type PreciosData } from "~/types/Precios"
+import type { LoaderFunctionArgs } from "@remix-run/node"
 
 import banner from "../../assets/precios/banner.jpg"
 import style from "./styles/precios.module.css"
@@ -66,10 +67,35 @@ const Precios = () => {
 
 export default Precios
 
-export const meta = () => {
-    const { locale: currentLocale } = useParams()
-    const locale = currentLocale || 'es' 
+export const meta = (context: LoaderFunctionArgs) => {
+    const { params } = context
+    const { locale: currentLocale } = params
+    
+    const locale = currentLocale || 'es'
     const { t } = getTranslations(locale)
-
-    return [{ title: t("precios.preciosTitle") }]
+    
+    const pageTitle = t("precios.title")
+    const pageDescription = t("precios.metaDescription") 
+    
+    const BASE_URL = process.env.PUBLIC_BASE_URL || 'https://tu-dominio-produccion.com'
+    
+    const canonicalUrl = `${BASE_URL}/${locale}/precios`
+    const pageImage = `${BASE_URL}/assets/images/social-preview.jpg`
+    
+    return [
+        { title: pageTitle },
+        { name: "description", content: pageDescription },
+        { tagName: "link", rel: "canonical", href: canonicalUrl },
+        { property: "og:title", content: pageTitle },
+        { property: "og:type", content: "article" }, 
+        { property: "og:url", content: canonicalUrl },
+        { property: "og:description", content: pageDescription },
+        { property: "og:image", content: pageImage },
+        { property: "og:locale", content: locale },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:site", content: "@eruedasanchez" },
+        { name: "twitter:title", content: pageTitle },
+        { name: "twitter:description", content: pageDescription },
+        { name: "twitter:image", content: pageImage }
+    ]
 }

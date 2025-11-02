@@ -1,7 +1,8 @@
 export const hardware = {
     name: "Hardware",
     path: "hardware",
-    hardwareTitle: "Hardware | Tabbi",
+    title: "Hardware | Tabbi",
+    metaDescription: "Explore el catálogo completo de dispositivos Tabbi. Encuentre soluciones de hardware diseñadas para integrarse perfectamente con su gestión de proyectos y tareas.",
     home: {
         title: "La tecnología que tu negocio merece",
         text: "Nuestro software cuenta con módulos especializados que simplifican y potencian la gestión de tu negocio o franquicia.",

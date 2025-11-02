@@ -1,7 +1,8 @@
 export const funcionalidades = {
     name: "Funcionalidades",
     path: "funcionalidades",
-    funcionalidadesTitle: "Funcionalidades | Tabbi",
+    title: "Funcionalidades | Tabbi",
+    metaDescription: "Maximice la eficiencia del equipo con las funciones esenciales de Tabbi Web. Acceda a gestión avanzada de tareas (Kanban), colaboración en tiempo real y seguimiento de progreso centralizado.",
     home: {
         title: "Un software que transforma tu experiencia.",
         text: "Nuestro software cuenta con módulos especializados que simplifican y potencian la gestión de tu negocio o franquicia.",
