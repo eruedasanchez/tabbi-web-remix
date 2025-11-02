@@ -1,7 +1,8 @@
 export const home = {
     name: "Inicio",
     path: "", 
-    homeTitle: "Inicio",
+    title: "Home | Tabbi Web",
+    metaDescription: "Organiza tu vida digital y maximiza tu productividad. Con Tabbi Web gestionas tus tareas y proyectos de forma rápida e intuitiva.",
     homeSection: {
         home: {
             title: "Tu negocio merece un gran comienzo. Nosotros te acompañamos.",

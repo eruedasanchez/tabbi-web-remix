@@ -1,7 +1,8 @@
 export const precios = {
     name: "Precios",
     path: "precios",
-    preciosTitle: "Precios | Tabbi",
+    title: "Precios | Tabbi",
+    metaDescription: "Encuentre el plan de Tabbi Web perfecto para su equipo. Compare nuestras opciones flexibles, planes escalables y precios transparentes, sin contratos a largo plazo.",
     home: {
         title: "Tabbi: <br> Un solo plan, todo incluido",
         text: "Gestión, ventas, reportes y más, todo en un solo lugar. Usá Tabbi en tu propio dispositivo o potenciá tu negocio con nuestro hardware en renting o compra.",
