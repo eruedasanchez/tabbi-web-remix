@@ -1,0 +1,278 @@
+import { useEffect, useState } from "react"
+import { useLoaderData, useNavigation, useParams } from "react-router-dom"
+import { useWindowSize } from "~/hooks"
+import { getTranslations } from "~/i18n"
+import { getHardwareData } from "~/services/hardware.service"
+import { Button, SkeletonLoader } from "~/components"
+import { createSwipeHandlers } from "~/utils"
+import { DeviceCard, DevicesSection, PageEnd, PageHero, PageSection } from "~/ui"
+import { Devices, DevicesAR, DevicesES, type DevicesDTO } from "~/data/data"
+import { type HardwareData } from "~/types/Hardware"
+
+import Assets from "~/assets/hardware"
+import style from "./styles/hardware.module.css"
+
+
+const MOBILE_BREAKPOINT = 900
+
+export async function loader() {
+    const data = await getHardwareData()
+    return data
+}
+
+const Hardware = () => {
+    const [activeIndexAccessories, setActiveIndexAccessories] = useState(0)
+    const [activeIndexPaid, setActiveIndexPaid] = useState(0)
+    const [isMobile, setIsMobile] = useState(false)
+    
+    const navigation = useNavigation()
+    const data = useLoaderData() as HardwareData
+    const { width } = useWindowSize()
+
+    const { locale: currentLocale } = useParams()
+    const locale = currentLocale || 'es' 
+    const { t } = getTranslations(locale)
+    
+    const DevicesPaid = locale === "es" ? DevicesES : DevicesAR
+    
+    if (navigation.state === "loading") {
+        return <SkeletonLoader variant="hardware" />
+    }
+
+    const scrollToFormSection = () => {
+        const seccion = document.getElementById("terminals")
+        if (seccion) {
+        seccion.scrollIntoView({ behavior: "smooth" })
+        }
+    }
+
+    useEffect(() => {
+        if (width > 0) {
+            setIsMobile(width < MOBILE_BREAKPOINT)
+        }
+        }, [width])
+        
+    
+    const handleNext = (
+        setter: React.Dispatch<React.SetStateAction<number>>,
+        arrLength: number
+    ) => {
+        setter((prev) => (prev + 1) % arrLength)
+    }
+
+    const handlePrev = (
+        setter: React.Dispatch<React.SetStateAction<number>>,
+        arrLength: number
+    ) => {
+        setter((prev) => (prev === 0 ? arrLength - 1 : prev - 1))
+    }
+
+    const renderSlider = (
+        items: Array<DevicesDTO>,
+        activeIndex: number,
+        setActiveIndex: React.Dispatch<React.SetStateAction<number>>
+    ) => {
+        const multiple = items.length > 1
+
+        const handleSwipe = createSwipeHandlers({
+        onSwipeLeft: () => handlePrev(setActiveIndex, items.length),
+        onSwipeRight: () => handleNext(setActiveIndex, items.length)
+        })
+
+        if (!isMobile || !multiple) {
+        return items.map((item, idx) => (
+            <DeviceCard key={idx} {...item} className={style.deviceCard} />
+        ))
+        }
+
+        return (
+        <>
+            {items.map((item, idx) => (
+            <div
+                key={idx}
+                className={`${style.slide} ${
+                idx === activeIndex ? style.active : style.hidden
+                }`}
+                onTouchStart={handleSwipe.start}
+                onTouchEnd={handleSwipe.end}
+            >
+                <DeviceCard {...item} className={style.deviceCard} />
+            </div>
+            ))}
+
+            <div className={style.buttons}>
+            <Button
+                className={`${style.btn} ${style.buttonLeft}`}
+                onClick={() => handlePrev(setActiveIndex, items.length)}
+            />
+            <Button
+                className={`${style.btn} ${style.buttonRight}`}
+                onClick={() => handleNext(setActiveIndex, items.length)}
+            />
+            </div>
+        </>
+        )
+    }
+
+    return (
+        <main className={style.hardwareContainer}>
+        <PageHero
+            children={Assets.totem}
+            className={style.pageHero}
+            title={t("hardware.home.title")}
+            text={t("hardware.home.text")}
+            cto={t("hardware.home.button")}
+            buttonFunction={scrollToFormSection}
+        />
+        <section className={style.pageBanner}>
+            <article className={style.container}>
+            <h2 className={style.title}>{t("hardware.pageBanner.title")}</h2>
+            <p className={style.text}>{t("hardware.pageBanner.text")}</p>
+            </article>
+        </section>
+        <PageSection
+            alt
+            rowReverse
+            id="terminals"
+            img={Assets.pic1}
+            className={style.pageSection}
+        >
+            <div>
+            <strong>{t("hardware.pageBanner.section.c20.strong")}</strong>
+            <h3>{t("hardware.pageBanner.section.c20.title")}</h3>
+            </div>
+            <p>{t("hardware.pageBanner.section.c20.description")}</p>
+            <ul>
+            <li>{t("hardware.pageBanner.section.c20.list.first")}</li>
+            <li>{t("hardware.pageBanner.section.c20.list.second")}</li>
+            <li>{t("hardware.pageBanner.section.c20.list.third")}</li>
+            <li>{t("hardware.pageBanner.section.c20.list.fourth")}</li>
+            <li>{t("hardware.pageBanner.section.c20.list.fifth")}</li>
+            <li>{t("hardware.pageBanner.section.c20.list.sixth")}</li>
+            </ul>
+        </PageSection>
+        <PageSection alt img={Assets.pic3} className={style.pageSection}>
+            <div>
+            <strong>{t("hardware.pageBanner.section.p30.strong")}</strong>
+            <h3>{t("hardware.pageBanner.section.p30.title")}</h3>
+            </div>
+            <p>{t("hardware.pageBanner.section.p30.description")}</p>
+            <ul>
+            <li>{t("hardware.pageBanner.section.p30.list.first")}</li>
+            <li>{t("hardware.pageBanner.section.p30.list.second")}</li>
+            <li>{t("hardware.pageBanner.section.p30.list.third")}</li>
+            <li>{t("hardware.pageBanner.section.p30.list.fourth")}</li>
+            <li>{t("hardware.pageBanner.section.p30.list.fifth")}</li>
+            </ul>
+        </PageSection>
+        <PageSection
+            alt
+            rowReverse
+            img={Assets.pic2}
+            className={style.pageSection}
+        >
+            <div>
+            <strong>{t("hardware.pageBanner.section.d2s.strong")}</strong>
+            <h3>{t("hardware.pageBanner.section.d2s.title")}</h3>
+            </div>
+            <p>{t("hardware.pageBanner.section.d2s.description")}</p>
+            <ul>
+            <li>{t("hardware.pageBanner.section.d2s.list.first")}</li>
+            <li>{t("hardware.pageBanner.section.d2s.list.second")}</li>
+            <li>{t("hardware.pageBanner.section.d2s.list.third")}</li>
+            <li>{t("hardware.pageBanner.section.d2s.list.fourth")}</li>
+            </ul>
+        </PageSection>
+        <PageSection className={style.pageSection} alt img={Assets.pic4}>
+            <div>
+            <strong>{t("hardware.pageBanner.section.t2s.strong")}</strong>
+            <h3>{t("hardware.pageBanner.section.t2s.title")}</h3>
+            </div>
+            <p>{t("hardware.pageBanner.section.t2s.description")}</p>
+            <ul>
+            <li>{t("hardware.pageBanner.section.t2s.list.first")}</li>
+            <li>{t("hardware.pageBanner.section.t2s.list.second")}</li>
+            <li>{t("hardware.pageBanner.section.t2s.list.third")}</li>
+            <li>{t("hardware.pageBanner.section.t2s.list.fourth")}</li>
+            </ul>
+        </PageSection>
+        <PageSection
+            alt
+            rowReverse
+            img={Assets.pic5}
+            className={style.pageSection}
+        >
+            <div>
+            <strong>{t("hardware.pageBanner.section.tablet.strong")}</strong>
+            </div>
+            <p>{t("hardware.pageBanner.section.tablet.description")}</p>
+            <ul>
+            <li>{t("hardware.pageBanner.section.tablet.list.first")}</li>
+            <li>{t("hardware.pageBanner.section.tablet.list.second")}</li>
+            <li>{t("hardware.pageBanner.section.tablet.list.third")}</li>
+            <li>{t("hardware.pageBanner.section.tablet.list.fourth")}</li>
+            <li>{t("hardware.pageBanner.section.tablet.list.fifth")}</li>
+            </ul>
+        </PageSection>
+        <PageSection className={style.pageSection} alt img={Assets.pic6}>
+            <div>
+            <strong>{t("hardware.pageBanner.section.k2.strong")}</strong>
+            <h3>{t("hardware.pageBanner.section.k2.title")}</h3>
+            </div>
+            <p>{t("hardware.pageBanner.section.k2.description")}</p>
+            <ul>
+            <li>{t("hardware.pageBanner.section.k2.list.first")}</li>
+            <li>{t("hardware.pageBanner.section.k2.list.second")}</li>
+            <li>{t("hardware.pageBanner.section.k2.list.third")}</li>
+            <li>{t("hardware.pageBanner.section.k2.list.fourth")}</li>
+            </ul>
+        </PageSection>
+        <PageSection
+            alt
+            rowReverse
+            img={Assets.pic7}
+            className={style.pageSection}
+        >
+            <div>
+            <strong>{t("hardware.pageBanner.section.commander.strong")}</strong>
+            </div>
+            <p>{t("hardware.pageBanner.section.commander.description")}</p>
+            <ul>
+            <li>{t("hardware.pageBanner.section.commander.list.first")}</li>
+            <li>{t("hardware.pageBanner.section.commander.list.second")}</li>
+            </ul>
+        </PageSection>
+        <DevicesSection
+            title={t("hardware.devices.paid.title")}
+            text={t("hardware.devices.paid.text")}
+        >
+            {renderSlider(DevicesPaid, activeIndexPaid, setActiveIndexPaid)}
+        </DevicesSection>
+        <DevicesSection
+            title={t("hardware.devices.accessories.title")}
+            text={t("hardware.devices.accessories.text")}
+        >
+            {renderSlider(
+            Devices,
+            activeIndexAccessories,
+            setActiveIndexAccessories
+            )}
+        </DevicesSection>
+        <PageEnd
+            className={style.endBanner}
+            text={t("hardware.endBanner.text")}
+            cta={t("hardware.endBanner.button")}
+        />
+        </main>
+    )
+}
+
+export default Hardware
+
+export const meta = () => {
+    const { locale: currentLocale } = useParams()
+    const locale = currentLocale || 'es' 
+    const { t } = getTranslations(locale)
+    
+    return [{ title: t("hardware.hardwareTitle") }]
+}

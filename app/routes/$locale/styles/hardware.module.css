@@ -1,0 +1,194 @@
+.hardwareContainer {
+  width: 100%;
+}
+
+.pageHero {
+  background-image: linear-gradient(
+    to right bottom,
+    #fff9f8,
+    #fff9f8,
+    #fff9f7,
+    #fff8f7,
+    #fff8f7,
+    #fff7f5,
+    #fff6f4,
+    #fff5f2,
+    #fff3ef,
+    #fff1ed,
+    #fff0ea,
+    #ffeee7
+  );
+}
+
+.pageHero div:has(img) {
+  background: transparent;
+}
+
+.pageHero img {
+  object-fit: cover;
+  border-radius: 10px;
+  object-position: center;
+}
+
+.pageSection {
+  background: var(--white);
+}
+
+.pageSection > article {
+  gap: 40px;
+}
+
+.pageBanner {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding-inline: 27px;
+  padding-block: 124px 138px;
+  background-color: var(--black);
+}
+
+.container {
+  gap: 34px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font: normal 700 40px/48px "Inter";
+  text-align: center;
+  color: var(--white);
+}
+
+.text {
+  font: normal 500 19px/28px "Inter";
+  letter-spacing: -0.2px;
+  mix-blend-mode: normal;
+  color: var(--white);
+  text-align: center;
+  max-width: 780px;
+  opacity: 0.7;
+}
+
+.endBanner {
+  padding-inline: 116px;
+}
+
+@media (max-width: 900px) {
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    height: 100%;
+    transform: translateX(20px);
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease;
+  }
+
+  .active {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 2;
+  }
+
+  .hidden {
+    opacity: 0;
+    z-index: 1;
+    transform: translateX(-20px);
+    pointer-events: none;
+  }
+
+  .aboutContainer {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    max-width: calc(100% - 40px);
+  }
+
+  .deviceCard {
+    margin-inline: auto;
+  }
+
+  .buttons {
+    gap: 12px;
+    z-index: 3;
+    right: 40px;
+    bottom: -62px;
+    display: flex;
+    position: absolute;
+  }
+
+  .btn {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    aspect-ratio: 1/1;
+    place-items: center;
+  }
+
+  .btn span {
+    display: none;
+  }
+
+  .btn > div {
+    width: 14px;
+    height: 14px;
+    aspect-ratio: 1/1;
+  }
+
+  .btn div svg {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+  }
+
+  .buttonLeft > div {
+    transform: rotate(180deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .pageHero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .pageBanner {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding: 123px 59px;
+    background-color: var(--black);
+  }
+
+  .pageSection {
+    padding: 60px 10px;
+    text-align: start;
+  }
+
+  .pageSection div {
+    text-align: start;
+  }
+
+  .pageSection ul {
+    align-items: start;
+  }
+
+  .pageSection li {
+    text-align: start;
+    font-family: Inter;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.3px;
+    color: rgba(54, 56, 82, 1);
+  }
+
+  .endBanner {
+    padding-inline: 20px;
+  }
+}

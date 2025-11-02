@@ -1,0 +1,117 @@
+.card {
+    gap: 26px;
+    display: flex;
+    padding: 32px 38px;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--white);
+    justify-content: flex-start;
+    box-shadow: 0px 3.57775px 8.04993px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.head {
+    gap: 18px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.icon {
+    width: 53px;
+    height: 53px;
+    display: grid;
+    aspect-ratio: 1/1;
+    place-items: center;
+    border-radius: 6px;
+    background: var(--primary-10);
+}
+
+.icon img {
+    width: 26px;
+    height: 26px;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    object-position: center;
+}
+
+.title {
+    font: Bold 700 19px/100% "Inter";
+    color: var(--black);
+}
+
+.text {
+    font: normal 400 16px/144% "Inter";
+    color: var(--black-5);
+}
+
+@media (min-width: 900px) {
+    .card {
+        gap: 30px;
+        padding: 36px 43px;
+        box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.05);
+    }
+
+    .icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .icon img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .title {
+        font: Bold 700 22px/26px "Inter";
+    }
+
+    .text {
+        font: normal 400 18px/144% "Inter";
+    }
+}
+
+@media (max-width: 900px) {
+    .card {
+        height: 340px;
+    }
+
+    .buttons {
+        gap: 12px;
+        z-index: 3;
+        right: 24px;
+        bottom: -62px;
+        display: flex;
+        position: absolute;
+    }
+
+    .btn {
+        width: 44px;
+        height: 44px;
+        display: grid;
+        aspect-ratio: 1/1;
+        place-items: center;
+    }
+
+    .btn span {
+        display: none;
+    }
+
+    .btn > div {
+        width: 14px;
+        height: 14px;
+        aspect-ratio: 1/1;
+    }
+
+    .btn div svg {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1/1;
+    }
+
+    .buttonLeft > div {
+        transform: rotate(180deg);
+    }
+}

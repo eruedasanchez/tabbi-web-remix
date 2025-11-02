@@ -1,0 +1,355 @@
+.header {
+  z-index: 10;
+  width: 100%;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  padding: 16px 21px 12px 23px;
+  justify-content: center;
+  background-color: var(--primary-11);
+}
+
+.badgeLink {
+  display: block;
+  width: 81px;
+  height: 27.3px;
+}
+
+.badge {
+  width: 81px;
+  height: 27.3px;
+}
+
+.demoBtn {
+  width: 161px;
+  height: 40px;
+  color: var(--primary);
+  text-decoration: none;
+  font: normal 500 16px/19px "Inter";
+  display: flex;
+  padding: 10px 12px;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  background: var(--black-11);
+  border: 1px solid var(--primary);
+}
+
+.langSelector {
+  position: relative;
+}
+
+.currentLang {
+  gap: 8px;
+  height: 40px;
+  display: flex;
+  cursor: pointer;
+  background: none;
+  padding: 6px 8px;
+  border-radius: 4px;
+  align-items: center;
+  border: 1px solid var(--primary);
+  background-color: var(--black-11);
+}
+
+.currentLang img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.langArrow {
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--primary);
+  transition: transform 0.3s ease-out;
+}
+
+.langArrow.up {
+  transform: rotate(180deg);
+}
+
+.langList {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 2px 4px;
+  border-radius: 12px;
+  background-color: var(--black-11);
+  border: 1px solid var(--Tabbi-Naranja-20, #ffe2d5);
+  box-shadow:
+    0 8px 14px 0 rgba(94, 96, 117, 0.1),
+    0 32px 54px 0 rgba(255, 108, 46, 0.11);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-5px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s;
+  z-index: 20;
+}
+
+.langList.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.langItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  width: 100%;
+  min-width: 100px;
+  font: normal 500 16px/19px "Inter";
+  color: var(--black-6);
+  transition: background-color 0.2s;
+}
+
+.langItem:hover,
+.langItem.active {
+  color: var(--black);
+}
+
+.langItem img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media (min-width: 900px) {
+  .header {
+    height: clamp(90px, 14dvh, 114px);
+    padding: 31px 89px;
+  }
+
+  .badgeLink {
+    width: 149px;
+    height: 50.22px;
+  }
+
+  .badge {
+    width: 149px;
+    height: 50.22px;
+  }
+
+  .demoBtn {
+    margin-left: auto;
+    order: 3;
+  }
+
+  .nav {
+    margin-left: auto;
+    display: grid;
+    place-items: center;
+    order: 2;
+  }
+
+  .list {
+    gap: 26px;
+    display: flex;
+  }
+
+  .closeNav {
+    display: none;
+  }
+
+  .item {
+    display: grid;
+    place-items: center;
+  }
+
+  .link {
+    padding: 6px 12px;
+    font: normal 500 16px/19px "Inter";
+
+    text-decoration: none;
+    color: var(--black-6);
+    transition: ease-out 0.3s;
+  }
+
+  .link.active,
+  .link:is(:hover, :active) {
+    color: var(--black);
+  }
+
+  .burguerIcon {
+    display: none;
+  }
+
+  .navBadge {
+    display: none;
+  }
+
+  .langSelector {
+    order: 4;
+    margin-right: 0;
+    margin-left: 10px;
+  }
+
+  .currentLang {
+    padding: 6px 12px;
+  }
+
+  .demoBtn {
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .header {
+    justify-content: space-between;
+    padding: 16px 21px 12px 23px;
+  }
+
+  .badgeLink {
+    order: 1;
+    margin-right: auto;
+  }
+
+  .demoBtn {
+    margin-inline: 0;
+    margin: 0 8px;
+    order: 2;
+  }
+
+  .nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    max-width: 0%;
+    transition: ease-out 0.3s;
+    z-index: 30;
+  }
+
+  .nav.active {
+    max-width: 100%;
+  }
+
+  .burguerIcon {
+    height: 100%;
+    display: grid;
+    aspect-ratio: 1/1;
+    place-items: center;
+    border: 0;
+    outline: 0;
+    background: 0;
+    order: 4;
+    margin-right: -5px;
+    cursor: pointer;
+  }
+
+  .burguerIcon img {
+    width: 25px;
+    height: 21px;
+  }
+
+  .list {
+    position: absolute;
+    top: 0;
+    right: 0;
+    gap: 24px;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    list-style: none;
+    padding: 50px 16px;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: center;
+    transition: ease-out 0.3s;
+    max-width: calc(100% - 54px);
+    background-color: var(--black);
+    box-shadow: 0px 10px 30px rgba(62, 19, 77, 0.47);
+  }
+
+  .nav.active .list {
+    opacity: 1;
+  }
+
+  .item {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .link {
+    scale: 1;
+    padding: 6px 28px;
+    color: var(--white);
+    text-decoration: none;
+    transition: ease-out 0.3s;
+    font: normal 500 32px/100% "Inter";
+  }
+
+  .link:hover {
+    color: var(--black);
+  }
+
+  .link:active {
+    scale: 0.97;
+  }
+
+  .link.active {
+    color: var(--primary-7);
+  }
+
+  .closeNav {
+    position: absolute;
+    top: 54px;
+    left: 41px;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    cursor: pointer;
+    place-items: center;
+  }
+
+  .closeNav img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .navBadge {
+    position: absolute;
+    top: 54px;
+    right: 29px;
+    width: 149px;
+    height: 50.22px;
+  }
+
+  .langSelector {
+    order: 3;
+    margin-left: auto;
+    margin-right: 8px;
+  }
+
+  .currentLang {
+    color: var(--black);
+  }
+
+  .demoBtn {
+    margin-inline: 8px;
+    order: 2;
+  }
+}
