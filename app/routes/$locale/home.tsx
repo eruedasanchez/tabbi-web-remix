@@ -77,9 +77,9 @@ export const meta = (context: LoaderFunctionArgs) => {
     const pageTitle = t("home.title")
     const pageDescription = t("home.metaDescription")
     
-    const BASE_URL = process.env.PUBLIC_BASE_URL || 'https://tu-dominio-produccion.com'
+    const BASE_URL = import.meta.env.VITE_PUBLIC_BASE_URL || 'https://tabbi-web-remix-7bfo.vercel.app'
     const canonicalUrl = `${BASE_URL}/${locale}/`
-    const pageImage = `${BASE_URL}/assets/images/social-preview.jpg`
+    const pageImage = `${BASE_URL}/favicon.svg`
     
     return [
         { title: pageTitle },
