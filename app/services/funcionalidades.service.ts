@@ -1,7 +1,7 @@
 import type { FuncionalidadesData } from "~/types/Funcionalidades"
 
 export async function getFuncionalidadesData(): Promise<FuncionalidadesData> {
-    await new Promise(resolve => setTimeout(resolve, 3000)) 
+    await new Promise(resolve => setTimeout(resolve, 50)) 
     
     return {
         heroTitle: "Funcionalidades Clave de Tabbi",

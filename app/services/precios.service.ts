@@ -1,7 +1,7 @@
 import type { PreciosData } from "~/types/Precios"
 
 export async function getPreciosData(): Promise<PreciosData> {
-    await new Promise(resolve => setTimeout(resolve, 3000))
+    await new Promise(resolve => setTimeout(resolve, 50))
 
     return {
         tagline: "Elige el plan que impulsa tu negocio.",

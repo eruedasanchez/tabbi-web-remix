@@ -1,9 +1,7 @@
-import { useLoaderData, useNavigation, useNavigate, useParams } from "react-router-dom"
-import { getFuncionalidadesData } from "~/services/funcionalidades.service"
+import { useNavigation, useNavigate, useParams } from "react-router-dom"
 import { PageEnd, PageHero, PageSection } from "~/ui"
 import { getTranslations } from "~/i18n"
 import { DefaultLoader } from "~/components/SkeletonLoader/components"
-import type { FuncionalidadesData } from "~/types/Funcionalidades"
 import type { LoaderFunctionArgs } from "@remix-run/node"
 
 import pic1 from "../../assets/funcionalidades/pic1.webp"
@@ -15,25 +13,19 @@ import pic6 from "../../assets/funcionalidades/pic6.webp"
 import pic7 from "../../assets/funcionalidades/pic7.webp"
 import style from "./styles/funcionalidades.module.css"
 
-export async function loader() {
-    const data = await getFuncionalidadesData() 
-    return data
-}
-
 const Funcionalidades = () => {
-    const data = useLoaderData() as FuncionalidadesData
     const navigation = useNavigation()
     const navigate = useNavigate()
     const { locale: currentLocale } = useParams()
     const locale = currentLocale || 'es' 
     const { t } = getTranslations(locale)
-
-    if (navigation.state === "loading") {
-        return <DefaultLoader />
-    }
     
     const goToHardwarePage = () => {
         navigate(`/${locale}/hardware`, { replace: false })
+    }
+    
+    if (navigation.state === "loading") {
+        return <DefaultLoader />
     }
     
     return (

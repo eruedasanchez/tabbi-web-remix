@@ -1,7 +1,7 @@
 import type { HomeData } from "~/types/Home"
 
 export async function getHomeData(): Promise<HomeData> {
-    await new Promise(resolve => setTimeout(resolve, 500))
+    await new Promise(resolve => setTimeout(resolve, 50))
 
     return {
         welcomeMessageKey: 'welcomeTitle',

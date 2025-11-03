@@ -1,7 +1,7 @@
 import type { HardwareData } from "~/types/Hardware"
 
 export async function getHardwareData(): Promise<HardwareData> {
-    await new Promise(resolve => setTimeout(resolve, 3000))
+    await new Promise(resolve => setTimeout(resolve, 50))
 
     return {
         heroTitle: "Hardware Compatible Recomendado",
