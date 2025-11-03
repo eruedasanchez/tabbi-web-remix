@@ -395,3 +395,24 @@ app/
 
 10. `services/`
     - Funciones para manejar la lógica de negocio o acceso a datos por página, manteniendo la separación de responsabilidades.
+
+## 💻 Requisitos del Entorno (Node.js y NVM)
+
+Para garantizar un entorno de desarrollo consistente, evitar errores de runtime (`ERR_REQUIRE_ESM`) y asegurar que las dependencias (`Vite`, `@react-router/dev`) funcionen correctamente, es obligatorio usar una versión de Node.js que cumpla con los estándares LTS.
+
+El proyecto debe ejecutarse usando la versión LTS activa actual (Node v20.x).
+
+Para configurar la versión automáticamente:
+
+1. Archivo `.nvmrc`: En la raíz del proyecto, se crea un archivo llamado `.nvmrc` con el número de versión estable requerido.
+
+2. Una vez en el directorio del proyecto, se debe ejecutar:
+
+```bash
+nvm use
+
+# Si la versión no está instalada, NVM la instalará:
+
+# nvm install
+# nvm use
+```
