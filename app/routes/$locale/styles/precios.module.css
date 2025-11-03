@@ -20,7 +20,7 @@
     width: 100%;
 }
 
-.priceHero div:has(img) {
+.priceHero section:first-child div:has(img) {
     background: transparent;
 }
 

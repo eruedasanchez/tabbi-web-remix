@@ -19,12 +19,12 @@
   min-height: 215px;
 }
 
-.title {
+.planCard .title {
   font-size: 30px;
   font-weight: 700;
 }
 
-.subtitle {
+.planCard .subtitle {
   font-size: 24px;
   font-weight: 400;
   color: var(--primary);
@@ -36,24 +36,24 @@
   margin-top: 20px;
 }
 
-.currency {
+.planCard .currency {
   font-size: 18px;
   margin-block: auto;
   color: var(--black-3);
 }
 
-.priceWhole {
+.planCard .priceWhole {
   font-size: 50px;
   font-weight: 700;
 }
 
-.priceCents {
+.planCard .priceCents {
   font-size: 22px;
   font-weight: 700;
   align-self: flex-end;
 }
 
-.perDevice {
+.planCard .perDevice {
   font-size: 12px;
   text-transform: uppercase;
   color: var(--black-5);
@@ -75,7 +75,7 @@
   gap: 15px;
 }
 
-.features li {
+.planCard .features li {
   list-style: none;
   display: flex;
   align-items: center;
@@ -84,7 +84,7 @@
   text-align: start;
 }
 
-.button {
+.planCard .button {
   width: 100%;
   max-width: 260px;
   height: 64px;
@@ -125,7 +125,7 @@
   height: 92%;
   background-color: var(--primary-3);
   border-radius: 50%;
-  z-index: 1;
+  z-index: -1;
 }
 
 .recommended > * {
@@ -166,15 +166,15 @@
   padding-top: 0;
 }
 
-.billingText,
-.billingPrice {
+.planCard .billingText,
+.planCard .billingPrice {
   margin-top: 14px;
   font-size: 12px;
   text-transform: uppercase;
   color: var(--black-2);
 }
 
-.billingPrice {
+.planCard .billingPrice {
   font-weight: 700;
 }
 
