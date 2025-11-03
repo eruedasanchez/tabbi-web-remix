@@ -58,7 +58,8 @@ const PageHero = ({
                 {typeof children === "string" ? (
                 <img
                     src={children}
-                    loading="lazy"
+                    loading="eager" 
+                    fetchPriority="high"
                     draggable="false"
                     className={style.image}
                 />

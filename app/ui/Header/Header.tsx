@@ -33,11 +33,12 @@ const Header = () => {
                 onClick={closeMenus}
             >
                 <img
-                className={style.badge}
-                src={icon}
-                loading="lazy"
-                alt="tabbi-logo"
-                draggable="false"
+                    className={style.badge}
+                    src={icon}
+                    loading="eager" 
+                    fetchPriority="high"
+                    alt="tabbi-logo"
+                    draggable="false"
                 />
             </NavLink>
             <nav className={`${style.nav} ${toggleNav ? style.active : ""}`}>
@@ -53,7 +54,12 @@ const Header = () => {
                         className={style.closeNav}
                         onClick={() => setToggleNav(!toggleNav)}
                     >
-                        <img src={cross} alt="cross-icon" draggable="false" />
+                        <img 
+                            src={cross}
+                            loading="lazy" 
+                            alt="cross-icon" 
+                            draggable="false" 
+                        />
                     </li>
                     {routes
                         .filter((rt) => !rt.navOmit)
@@ -99,6 +105,8 @@ const Header = () => {
                 >
                     <img 
                         src={currentLang.flag} 
+                        loading="eager" 
+                        fetchPriority="high"
                         alt={`${currentLang.name} flag`} 
                         className={style.flagIcon} 
                     /> 
@@ -117,7 +125,8 @@ const Header = () => {
                         >
                             <span>{lang.name}</span>
                             <img 
-                                src={lang.flag} 
+                                src={lang.flag}
+                                loading="lazy" 
                                 alt={`${lang.name} flag`} 
                                 className={style.flagIcon} 
                             />
@@ -129,7 +138,12 @@ const Header = () => {
                 className={style.burguerIcon}
                 onClick={() => setToggleNav(!toggleNav)}
             >
-                <img src={burgerIcon} alt="burger-icon" draggable="false" />
+                <img 
+                    src={burgerIcon}
+                    loading="lazy" 
+                    alt="burger-icon" 
+                    draggable="false" 
+                />
             </button>
         </header>
     )

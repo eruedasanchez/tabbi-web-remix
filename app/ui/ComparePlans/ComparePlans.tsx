@@ -23,7 +23,12 @@ const ComparePlans = () => {
                         <th>Comparación de planes</th>
                         {PLANS.map((plan, index) => (
                         <th key={index} className={style.planHeader}>
-                            <img src={boxIcon} alt="" aria-hidden />
+                            <img 
+                                src={boxIcon}
+                                loading="lazy" 
+                                alt="" 
+                                aria-hidden 
+                            />
                             <div className={style.planTitle}>{plan.title}</div>
                             <div className={style.planSubtitle}>{plan.subtitle}</div>
                         </th>
@@ -46,6 +51,7 @@ const ComparePlans = () => {
                                 {typeof val === "boolean" ? (
                                     <img
                                     src={val ? checkIcon : notIcon}
+                                    loading="lazy"
                                     alt=""
                                     aria-hidden
                                     />
