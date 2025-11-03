@@ -60,11 +60,12 @@ const FAQItem = ({
         <button className={styles.question} onClick={toggleOpen}>
             <span>{question}</span>
             <img
-            src={arrowIcon}
-            alt=""
-            aria-hidden
-            draggable={false}
-            className={isOpen ? "" : styles.rotate}
+                src={arrowIcon}
+                loading="lazy"
+                alt=""
+                aria-hidden
+                draggable={false}
+                className={isOpen ? "" : styles.rotate}
             />
         </button>
         <div className={styles.answerWrapper}>

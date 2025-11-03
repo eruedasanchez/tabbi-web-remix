@@ -24,7 +24,12 @@ const Footer = () => {
     return (
         <footer className={style.footer}>
             <div className={style.footerContainer}>
-                <img src={Logo} alt="Tabbi Logo" className={style.logo} />
+                <img 
+                    src={Logo}
+                    loading="lazy" 
+                    alt="Tabbi Logo" 
+                    className={style.logo} 
+                />
                 <p>Copyright © 2025 Tabbi</p>
                 <p>Todos los derechos reservados</p>
             </div>
@@ -52,7 +57,11 @@ const Footer = () => {
                 className={style.backToTop}
                 onClick={() => scrollToFormSection()}
             >
-                <img src={Arrow} alt="Back to top" />
+                <img 
+                    src={Arrow}
+                    loading="lazy" 
+                    alt="Back to top" 
+                />
             </button>
         </footer>
     )
