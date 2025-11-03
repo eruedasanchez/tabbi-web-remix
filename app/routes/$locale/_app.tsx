@@ -1,5 +1,5 @@
 import { Outlet, useNavigation, useParams } from "react-router-dom"
-import { Header, Footer } from "~/ui"
+import { Header, Footer, FormSection } from "~/ui"
 import style from "./styles/_app.module.css"
 
 export default function Layout() {
@@ -27,6 +27,7 @@ export default function Layout() {
         <div className={style.mainContent}>
             <Outlet />
         </div>
+        <FormSection />        
         <Footer />
         </div>
     )
