@@ -9,6 +9,7 @@ const ScrollNavLink = ({
     children: React.ReactNode
 }) => (
     <NavLink
+        end
         to={to}
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         className={({ isActive }) =>

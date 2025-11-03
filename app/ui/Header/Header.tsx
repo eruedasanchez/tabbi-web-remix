@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useLocation } from "react-router-dom"
 import useHeader from "./hooks/useHeader"
 import icon from "./assets/icon.svg"
 import cross from "./assets/cross.svg"
@@ -6,6 +6,7 @@ import burgerIcon from "./assets/burguer.png"
 import style from "./Header.module.css"
 
 const Header = () => {
+    const location = useLocation();
     const headerValues = useHeader()
     const {
         currentLang,
@@ -71,13 +72,20 @@ const Header = () => {
                                 finalPath = `/${locale}/${translatedSlug}`
                             }
 
+                            const isHomeActive =
+                                location.pathname === `/${locale}` || 
+                                location.pathname === `/${locale}/`;
+
+                            const isActive =
+                                (finalPath === `/${locale}/` && isHomeActive) ||
+                                location.pathname === finalPath
+
                             return (
                                 <li className={style.item} key={idx}>
                                 <NavLink
-                                    end
                                     to={finalPath}
                                     onClick={() => setToggleNav(!toggleNav)}
-                                    className={({ isActive }) =>
+                                    className={() =>
                                     `${style.link} ${isActive ? style.active : ""}`
                                     }
                                 >
