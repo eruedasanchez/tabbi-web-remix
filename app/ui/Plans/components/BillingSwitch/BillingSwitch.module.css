@@ -9,7 +9,7 @@
     justify-content: space-between;
 }
 
-.switchButton {
+.billingSwitch .switchButton {
     width: fit-content;
     height: 56px;
     padding-inline: 10px;
@@ -27,7 +27,7 @@
     background-color: rgba(0, 0, 0, 0.03);
 }
 
-.active {
+.billingSwitch .active {
     background: var(--primary);
     color: var(--white);
 
@@ -44,7 +44,7 @@
         padding: 8px;
     }
 
-    .switchButton {
+    .billingSwitch .switchButton {
         width: 160px;
         height: 56px;
         padding-inline: 0;
