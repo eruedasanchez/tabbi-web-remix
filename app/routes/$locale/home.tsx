@@ -1,15 +1,15 @@
 import { useParams, useLoaderData, useNavigation } from "react-router-dom"
 import { getHomeData } from "~/services/home.service"
 import { getTranslations } from "~/i18n"
-import { Button, SkeletonLoader } from "~/components"
+import { Button } from "~/components"
 import { PageHero, Banner, PageSection, About, Integrations, PageEnd } from "~/ui"
 import type { HomeData } from "~/types/Home"
 import type { LoaderFunctionArgs } from "@remix-run/node"
+import { DefaultLoader } from "~/components/SkeletonLoader/components"
 
 import productAsset from "../../assets/home/product.webp"
 import homeAsset from "../../assets/home/home.webp"
 import style from "./styles/home.module.css"
-
 
 export async function loader() {
     const data = await getHomeData()
@@ -25,7 +25,7 @@ const Home = () => {
     const data = useLoaderData() as HomeData
     
     if (navigation.state === "loading") {
-        return <SkeletonLoader variant="home" />
+        return <DefaultLoader />
     }
 
     const scrollToFormSection = () => {

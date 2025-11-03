@@ -3,7 +3,8 @@ import { useLoaderData, useNavigation, useParams } from "react-router-dom"
 import { useWindowSize } from "~/hooks"
 import { getTranslations } from "~/i18n"
 import { getHardwareData } from "~/services/hardware.service"
-import { Button, SkeletonLoader } from "~/components"
+import { Button } from "~/components"
+import { DefaultLoader } from "~/components/SkeletonLoader/components"
 import { createSwipeHandlers } from "~/utils"
 import { DeviceCard, DevicesSection, PageEnd, PageHero, PageSection } from "~/ui"
 import { Devices, DevicesAR, DevicesES, type DevicesDTO } from "~/data/data"
@@ -36,7 +37,7 @@ const Hardware = () => {
     const DevicesPaid = locale === "es" ? DevicesES : DevicesAR
     
     if (navigation.state === "loading") {
-        return <SkeletonLoader variant="hardware" />
+        return <DefaultLoader />
     }
 
     const scrollToFormSection = () => {

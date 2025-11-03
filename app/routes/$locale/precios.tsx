@@ -1,7 +1,7 @@
 import { useLoaderData, useNavigation, useParams } from "react-router-dom"
 import { getTranslations } from "~/i18n"
 import { getPreciosData } from "~/services/precios.service"
-import { SkeletonLoader } from "~/components"
+import { DefaultLoader } from "~/components/SkeletonLoader/components"
 import { 
     Banner, 
     ComparePlans, 
@@ -39,7 +39,7 @@ const Precios = () => {
     }
 
     if (navigation.state === "loading") {
-        return <SkeletonLoader />
+        return <DefaultLoader /> 
     }
     
     return (

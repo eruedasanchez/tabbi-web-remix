@@ -2,7 +2,7 @@ import { useLoaderData, useNavigation, useNavigate, useParams } from "react-rout
 import { getFuncionalidadesData } from "~/services/funcionalidades.service"
 import { PageEnd, PageHero, PageSection } from "~/ui"
 import { getTranslations } from "~/i18n"
-import { SkeletonLoader } from "~/components"
+import { DefaultLoader } from "~/components/SkeletonLoader/components"
 import type { FuncionalidadesData } from "~/types/Funcionalidades"
 import type { LoaderFunctionArgs } from "@remix-run/node"
 
@@ -29,7 +29,7 @@ const Funcionalidades = () => {
     const { t } = getTranslations(locale)
 
     if (navigation.state === "loading") {
-        return <SkeletonLoader variant="funcionalidades" />
+        return <DefaultLoader />
     }
     
     const goToHardwarePage = () => {
