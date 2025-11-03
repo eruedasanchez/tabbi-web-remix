@@ -35,10 +35,6 @@ const Hardware = () => {
     const { t } = getTranslations(locale)
     
     const DevicesPaid = locale === "es" ? DevicesES : DevicesAR
-    
-    if (navigation.state === "loading") {
-        return <DefaultLoader />
-    }
 
     const scrollToFormSection = () => {
         const seccion = document.getElementById("terminals")
@@ -113,6 +109,10 @@ const Hardware = () => {
             </div>
         </>
         )
+    }
+
+    if (navigation.state === "loading") {
+        return <DefaultLoader />
     }
 
     return (
