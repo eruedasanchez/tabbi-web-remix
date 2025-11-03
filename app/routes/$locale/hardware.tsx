@@ -139,31 +139,31 @@ const Hardware = () => {
             className={style.pageSection}
         >
             <div>
-            <strong>{t("hardware.pageBanner.section.c20.strong")}</strong>
-            <h3>{t("hardware.pageBanner.section.c20.title")}</h3>
+            <strong>{t("hardware.section.c20.strong")}</strong>
+            <h3>{t("hardware.section.c20.title")}</h3>
             </div>
-            <p>{t("hardware.pageBanner.section.c20.description")}</p>
+            <p>{t("hardware.section.c20.description")}</p>
             <ul>
-            <li>{t("hardware.pageBanner.section.c20.list.first")}</li>
-            <li>{t("hardware.pageBanner.section.c20.list.second")}</li>
-            <li>{t("hardware.pageBanner.section.c20.list.third")}</li>
-            <li>{t("hardware.pageBanner.section.c20.list.fourth")}</li>
-            <li>{t("hardware.pageBanner.section.c20.list.fifth")}</li>
-            <li>{t("hardware.pageBanner.section.c20.list.sixth")}</li>
+            <li>{t("hardware.section.c20.list.first")}</li>
+            <li>{t("hardware.section.c20.list.second")}</li>
+            <li>{t("hardware.section.c20.list.third")}</li>
+            <li>{t("hardware.section.c20.list.fourth")}</li>
+            <li>{t("hardware.section.c20.list.fifth")}</li>
+            <li>{t("hardware.section.c20.list.sixth")}</li>
             </ul>
         </PageSection>
         <PageSection alt img={Assets.pic3} className={style.pageSection}>
             <div>
-            <strong>{t("hardware.pageBanner.section.p30.strong")}</strong>
-            <h3>{t("hardware.pageBanner.section.p30.title")}</h3>
+            <strong>{t("hardware.section.p30.strong")}</strong>
+            <h3>{t("hardware.section.p30.title")}</h3>
             </div>
-            <p>{t("hardware.pageBanner.section.p30.description")}</p>
+            <p>{t("hardware.section.p30.description")}</p>
             <ul>
-            <li>{t("hardware.pageBanner.section.p30.list.first")}</li>
-            <li>{t("hardware.pageBanner.section.p30.list.second")}</li>
-            <li>{t("hardware.pageBanner.section.p30.list.third")}</li>
-            <li>{t("hardware.pageBanner.section.p30.list.fourth")}</li>
-            <li>{t("hardware.pageBanner.section.p30.list.fifth")}</li>
+            <li>{t("hardware.section.p30.list.first")}</li>
+            <li>{t("hardware.section.p30.list.second")}</li>
+            <li>{t("hardware.section.p30.list.third")}</li>
+            <li>{t("hardware.section.p30.list.fourth")}</li>
+            <li>{t("hardware.section.p30.list.fifth")}</li>
             </ul>
         </PageSection>
         <PageSection
@@ -173,28 +173,28 @@ const Hardware = () => {
             className={style.pageSection}
         >
             <div>
-            <strong>{t("hardware.pageBanner.section.d2s.strong")}</strong>
-            <h3>{t("hardware.pageBanner.section.d2s.title")}</h3>
+            <strong>{t("hardware.section.d2s.strong")}</strong>
+            <h3>{t("hardware.section.d2s.title")}</h3>
             </div>
-            <p>{t("hardware.pageBanner.section.d2s.description")}</p>
+            <p>{t("hardware.section.d2s.description")}</p>
             <ul>
-            <li>{t("hardware.pageBanner.section.d2s.list.first")}</li>
-            <li>{t("hardware.pageBanner.section.d2s.list.second")}</li>
-            <li>{t("hardware.pageBanner.section.d2s.list.third")}</li>
-            <li>{t("hardware.pageBanner.section.d2s.list.fourth")}</li>
+            <li>{t("hardware.section.d2s.list.first")}</li>
+            <li>{t("hardware.section.d2s.list.second")}</li>
+            <li>{t("hardware.section.d2s.list.third")}</li>
+            <li>{t("hardware.section.d2s.list.fourth")}</li>
             </ul>
         </PageSection>
         <PageSection className={style.pageSection} alt img={Assets.pic4}>
             <div>
-            <strong>{t("hardware.pageBanner.section.t2s.strong")}</strong>
-            <h3>{t("hardware.pageBanner.section.t2s.title")}</h3>
+            <strong>{t("hardware.section.t2s.strong")}</strong>
+            <h3>{t("hardware.section.t2s.title")}</h3>
             </div>
-            <p>{t("hardware.pageBanner.section.t2s.description")}</p>
+            <p>{t("hardware.section.t2s.description")}</p>
             <ul>
-            <li>{t("hardware.pageBanner.section.t2s.list.first")}</li>
-            <li>{t("hardware.pageBanner.section.t2s.list.second")}</li>
-            <li>{t("hardware.pageBanner.section.t2s.list.third")}</li>
-            <li>{t("hardware.pageBanner.section.t2s.list.fourth")}</li>
+            <li>{t("hardware.section.t2s.list.first")}</li>
+            <li>{t("hardware.section.t2s.list.second")}</li>
+            <li>{t("hardware.section.t2s.list.third")}</li>
+            <li>{t("hardware.section.t2s.list.fourth")}</li>
             </ul>
         </PageSection>
         <PageSection
@@ -204,28 +204,28 @@ const Hardware = () => {
             className={style.pageSection}
         >
             <div>
-            <strong>{t("hardware.pageBanner.section.tablet.strong")}</strong>
+            <strong>{t("hardware.section.tablet.strong")}</strong>
             </div>
-            <p>{t("hardware.pageBanner.section.tablet.description")}</p>
+            <p>{t("hardware.section.tablet.description")}</p>
             <ul>
-            <li>{t("hardware.pageBanner.section.tablet.list.first")}</li>
-            <li>{t("hardware.pageBanner.section.tablet.list.second")}</li>
-            <li>{t("hardware.pageBanner.section.tablet.list.third")}</li>
-            <li>{t("hardware.pageBanner.section.tablet.list.fourth")}</li>
-            <li>{t("hardware.pageBanner.section.tablet.list.fifth")}</li>
+            <li>{t("hardware.section.tablet.list.first")}</li>
+            <li>{t("hardware.section.tablet.list.second")}</li>
+            <li>{t("hardware.section.tablet.list.third")}</li>
+            <li>{t("hardware.section.tablet.list.fourth")}</li>
+            <li>{t("hardware.section.tablet.list.fifth")}</li>
             </ul>
         </PageSection>
         <PageSection className={style.pageSection} alt img={Assets.pic6}>
             <div>
-            <strong>{t("hardware.pageBanner.section.k2.strong")}</strong>
-            <h3>{t("hardware.pageBanner.section.k2.title")}</h3>
+            <strong>{t("hardware.section.k2.strong")}</strong>
+            <h3>{t("hardware.section.k2.title")}</h3>
             </div>
-            <p>{t("hardware.pageBanner.section.k2.description")}</p>
+            <p>{t("hardware.section.k2.description")}</p>
             <ul>
-            <li>{t("hardware.pageBanner.section.k2.list.first")}</li>
-            <li>{t("hardware.pageBanner.section.k2.list.second")}</li>
-            <li>{t("hardware.pageBanner.section.k2.list.third")}</li>
-            <li>{t("hardware.pageBanner.section.k2.list.fourth")}</li>
+            <li>{t("hardware.section.k2.list.first")}</li>
+            <li>{t("hardware.section.k2.list.second")}</li>
+            <li>{t("hardware.section.k2.list.third")}</li>
+            <li>{t("hardware.section.k2.list.fourth")}</li>
             </ul>
         </PageSection>
         <PageSection
@@ -235,12 +235,12 @@ const Hardware = () => {
             className={style.pageSection}
         >
             <div>
-            <strong>{t("hardware.pageBanner.section.commander.strong")}</strong>
+            <strong>{t("hardware.section.commander.strong")}</strong>
             </div>
-            <p>{t("hardware.pageBanner.section.commander.description")}</p>
+            <p>{t("hardware.section.commander.description")}</p>
             <ul>
-            <li>{t("hardware.pageBanner.section.commander.list.first")}</li>
-            <li>{t("hardware.pageBanner.section.commander.list.second")}</li>
+            <li>{t("hardware.section.commander.list.first")}</li>
+            <li>{t("hardware.section.commander.list.second")}</li>
             </ul>
         </PageSection>
         <DevicesSection
