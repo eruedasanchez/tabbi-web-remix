@@ -1,6 +1,5 @@
-import { useLoaderData, useNavigation, useParams } from "react-router-dom"
+import { useNavigation, useParams } from "react-router-dom"
 import { getTranslations } from "~/i18n"
-import { getPreciosData } from "~/services/precios.service"
 import { DefaultLoader } from "~/components/SkeletonLoader/components"
 import { 
     Banner, 
@@ -10,22 +9,14 @@ import {
     PageHero, 
     Plans 
 } from "~/ui"
-import { type PreciosData } from "~/types/Precios"
 import type { LoaderFunctionArgs } from "@remix-run/node"
 
 import banner from "../../assets/precios/banner.jpg"
 import style from "./styles/precios.module.css"
 
-export async function loader() {
-    const data = await getPreciosData()
-    return data
-}
-
 const Precios = () => {
     const navigation = useNavigation()
-    const data = useLoaderData() as PreciosData
-    const { tagline, plans } = data
-
+    
     const { locale: currentLocale } = useParams()
     const locale = currentLocale || 'es' 
     const { t } = getTranslations(locale)

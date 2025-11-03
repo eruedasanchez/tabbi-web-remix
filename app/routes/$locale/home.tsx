@@ -1,9 +1,7 @@
-import { useParams, useLoaderData, useNavigation } from "react-router-dom"
-import { getHomeData } from "~/services/home.service"
+import { useParams, useNavigation } from "react-router-dom"
 import { getTranslations } from "~/i18n"
 import { Button } from "~/components"
 import { PageHero, Banner, PageSection, About, Integrations, PageEnd } from "~/ui"
-import type { HomeData } from "~/types/Home"
 import type { LoaderFunctionArgs } from "@remix-run/node"
 import { DefaultLoader } from "~/components/SkeletonLoader/components"
 
@@ -11,23 +9,12 @@ import productAsset from "../../assets/home/product.webp"
 import homeAsset from "../../assets/home/home.webp"
 import style from "./styles/home.module.css"
 
-export async function loader() {
-    const data = await getHomeData()
-    return data
-}
-
 const Home = () => {
     const navigation = useNavigation()
     const { locale: currentLocale } = useParams()
     const locale = currentLocale || 'es' 
     const { t } = getTranslations(locale)
     
-    const data = useLoaderData() as HomeData
-    
-    if (navigation.state === "loading") {
-        return <DefaultLoader />
-    }
-
     const scrollToFormSection = () => {
         const seccion = document.getElementById("form-section")
         if (seccion) {
@@ -35,6 +22,10 @@ const Home = () => {
         }
     }
 
+    if (navigation.state === "loading") {
+        return <DefaultLoader />
+    }
+    
     return (
         <main className={style.homeContainer}>
         <div className={style.homeBg}>

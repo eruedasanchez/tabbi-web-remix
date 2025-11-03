@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react"
-import { useLoaderData, useNavigation, useParams } from "react-router-dom"
+import { useNavigation, useParams } from "react-router-dom"
 import { useWindowSize } from "~/hooks"
 import { getTranslations } from "~/i18n"
-import { getHardwareData } from "~/services/hardware.service"
 import { Button } from "~/components"
 import { DefaultLoader } from "~/components/SkeletonLoader/components"
 import { createSwipeHandlers } from "~/utils"
 import { DeviceCard, DevicesSection, PageEnd, PageHero, PageSection } from "~/ui"
 import { Devices, DevicesAR, DevicesES, type DevicesDTO } from "~/data/data"
-import { type HardwareData } from "~/types/Hardware"
 import type { LoaderFunctionArgs } from "@remix-run/node"
 
 import Assets from "~/assets/hardware"
@@ -16,18 +14,12 @@ import style from "./styles/hardware.module.css"
 
 const MOBILE_BREAKPOINT = 900
 
-export async function loader() {
-    const data = await getHardwareData()
-    return data
-}
-
 const Hardware = () => {
     const [activeIndexAccessories, setActiveIndexAccessories] = useState(0)
     const [activeIndexPaid, setActiveIndexPaid] = useState(0)
     const [isMobile, setIsMobile] = useState(false)
     
     const navigation = useNavigation()
-    const data = useLoaderData() as HardwareData
     const { width } = useWindowSize()
 
     const { locale: currentLocale } = useParams()
