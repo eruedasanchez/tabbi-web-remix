@@ -35,23 +35,23 @@ const Precios = () => {
     
     return (
         <main className={style.pricePage}>
-        <div className={style.priceHero}>
-            <PageHero
-            children={banner}
-            text={t("precios.home.text")}
-            cto={t("precios.home.button")}
-            title={t("precios.home.title")}
-            buttonFunction={scrollToComparePlans}
+            <div className={style.priceHero}>
+                <PageHero
+                    children={banner}
+                    text={t("precios.home.text")}
+                    cto={t("precios.home.button")}
+                    title={t("precios.home.title")}
+                    buttonFunction={scrollToComparePlans}
+                />
+                {locale === "es" && <Banner />}
+                <Plans />
+            </div>
+            <ComparePlans />
+            <FAQs />
+            <PageEnd
+                text={t("precios.endBanner.text")}
+                cta={t("precios.endBanner.button")}
             />
-            {locale === "es" && <Banner />}
-            <Plans />
-        </div>
-        <ComparePlans />
-        <FAQs />
-        <PageEnd
-            text={t("precios.endBanner.text")}
-            cta={t("precios.endBanner.button")}
-        />
         </main>
     )
 }

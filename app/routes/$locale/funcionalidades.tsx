@@ -30,107 +30,105 @@ const Funcionalidades = () => {
     
     return (
         <main className={style.funcionalityContainer}>
-        <PageHero
-            children={pic1}
-            className={style.functionalityHero}
-            text={t("funcionalidades.home.text")}
-            cto={t("funcionalidades.home.button")}
-            title={t("funcionalidades.home.title")}
-            buttonFunction={goToHardwarePage}
-        />
-        <PageSection img={pic2} className={`${style.sectionRow}`}>
-            <h3>
-            <strong>{t("funcionalidades.sections.sell.titleStrong")}</strong>{" "}
-            {t("funcionalidades.sections.sell.titleRest")}
-            </h3>
-            <p>{t("funcionalidades.sections.sell.description")}</p>
-            <ul>
-            <li>{t("funcionalidades.sections.sell.listOne")}</li>
-            <li>{t("funcionalidades.sections.sell.listTwo")}</li>
-            <li>{t("funcionalidades.sections.sell.listThree")}</li>
-            </ul>
-        </PageSection>
-        <PageSection
-            img={pic3}
-            rowReverse
-            className={`${style.sectionRowReverse}`}
-        >
-            <h3>
-            <strong>{t("funcionalidades.sections.table.titleStrong")}</strong>{" "}
-            {t("funcionalidades.sections.table.titleRest")}
-            </h3>
-            <p>{t("funcionalidades.sections.table.description")}</p>
-            <ul>
-            <li>{t("funcionalidades.sections.table.listOne")}</li>
-            <li>{t("funcionalidades.sections.table.listTwo")}</li>
-            <li>{t("funcionalidades.sections.table.listThree")}</li>
-            </ul>
-        </PageSection>
-        <PageSection img={pic4} className={`${style.sectionRow}`}>
-            <h3>
-            <strong>
-                {t("funcionalidades.sections.integrations.titleStrong")}
-            </strong>{" "}
-            {t("funcionalidades.sections.integrations.titleRest")}
-            </h3>
-            <p>{t("funcionalidades.sections.integrations.description")}</p>
-            <ul>
-            <li>{t("funcionalidades.sections.integrations.listOne")}</li>
-            <li>{t("funcionalidades.sections.integrations.listTwo")}</li>
-            <li>{t("funcionalidades.sections.integrations.listThree")}</li>
-            </ul>
-        </PageSection>
-        <PageSection
-            img={pic5}
-            rowReverse
-            className={`${style.sectionRowReverse}`}
-        >
-            <h3>
-            <strong>{t("funcionalidades.sections.customers.titleStrong")}</strong>{" "}
-            {t("funcionalidades.sections.customers.titleRest")}
-            </h3>
-            <p>{t("funcionalidades.sections.customers.description")}</p>
-            <ul>
-            <li>{t("funcionalidades.sections.customers.listOne")}</li>
-            <li>{t("funcionalidades.sections.customers.listTwo")}</li>
-            <li>{t("funcionalidades.sections.customers.listThree")}</li>
-            </ul>
-        </PageSection>
-        <PageSection img={pic6} className={`${style.sectionRow}`}>
-            <h3>
-            <strong>{t("funcionalidades.sections.plans.titleStrong")}</strong>{" "}
-            {t("funcionalidades.sections.plans.titleRest")}
-            </h3>
-            <p>{t("funcionalidades.sections.plans.description")}</p>
-            <ul>
-            <li>{t("funcionalidades.sections.plans.listOne")}</li>
-            <li>{t("funcionalidades.sections.plans.listTwo")}</li>
-            <li>{t("funcionalidades.sections.plans.listThree")}</li>
-            </ul>
-        </PageSection>
-        <PageSection
-            img={pic7}
-            rowReverse
-            className={`${style.sectionRowReverse}`}
-        >
-            <h3>
-            <strong>{t("funcionalidades.sections.management.titleStrong")}</strong>
-            {t("funcionalidades.sections.management.titleRest")}
-            </h3>
-            <p>
-            {t("funcionalidades.sections.management.description")}
-            </p>
-            <ul>
-            <li>{t("funcionalidades.sections.management.listOne")}</li>
-            <li>{t("funcionalidades.sections.management.listTwo")}</li>
-            <li>{t("funcionalidades.sections.management.listThree")}</li>
-            </ul>
-        </PageSection>
-        <PageEnd
-            className={style.endBanner}
-            text={t("funcionalidades.endBanner.text")}
-            cta={t("funcionalidades.endBanner.button")}
-        />
+            <PageHero
+                children={pic1}
+                className={style.functionalityHero}
+                text={t("funcionalidades.home.text")}
+                cto={t("funcionalidades.home.button")}
+                title={t("funcionalidades.home.title")}
+                buttonFunction={goToHardwarePage}
+            />
+            <PageSection img={pic2} className={`${style.sectionRow}`}>
+                <h3>
+                    <strong>{t("funcionalidades.sections.sell.titleStrong")}</strong>{" "}
+                    {t("funcionalidades.sections.sell.titleRest")}
+                </h3>
+                <p>{t("funcionalidades.sections.sell.description")}</p>
+                <ul>
+                    <li>{t("funcionalidades.sections.sell.listOne")}</li>
+                    <li>{t("funcionalidades.sections.sell.listTwo")}</li>
+                    <li>{t("funcionalidades.sections.sell.listThree")}</li>
+                </ul>
+            </PageSection>
+            <PageSection
+                img={pic3}
+                rowReverse
+                className={`${style.sectionRowReverse}`}
+            >
+                <h3>
+                    <strong>{t("funcionalidades.sections.table.titleStrong")}</strong>{" "}
+                    {t("funcionalidades.sections.table.titleRest")}
+                </h3>
+                <p>{t("funcionalidades.sections.table.description")}</p>
+                <ul>
+                    <li>{t("funcionalidades.sections.table.listOne")}</li>
+                    <li>{t("funcionalidades.sections.table.listTwo")}</li>
+                    <li>{t("funcionalidades.sections.table.listThree")}</li>
+                </ul>
+            </PageSection>
+            <PageSection img={pic4} className={`${style.sectionRow}`}>
+                <h3>
+                    <strong>
+                        {t("funcionalidades.sections.integrations.titleStrong")}
+                    </strong>{" "}
+                    {t("funcionalidades.sections.integrations.titleRest")}
+                </h3>
+                <p>{t("funcionalidades.sections.integrations.description")}</p>
+                <ul>
+                    <li>{t("funcionalidades.sections.integrations.listOne")}</li>
+                    <li>{t("funcionalidades.sections.integrations.listTwo")}</li>
+                    <li>{t("funcionalidades.sections.integrations.listThree")}</li>
+                </ul>
+            </PageSection>
+            <PageSection
+                img={pic5}
+                rowReverse
+                className={`${style.sectionRowReverse}`}
+            >
+                <h3>
+                    <strong>{t("funcionalidades.sections.customers.titleStrong")}</strong>{" "}
+                    {t("funcionalidades.sections.customers.titleRest")}
+                </h3>
+                <p>{t("funcionalidades.sections.customers.description")}</p>
+                <ul>
+                    <li>{t("funcionalidades.sections.customers.listOne")}</li>
+                    <li>{t("funcionalidades.sections.customers.listTwo")}</li>
+                    <li>{t("funcionalidades.sections.customers.listThree")}</li>
+                </ul>
+            </PageSection>
+            <PageSection img={pic6} className={`${style.sectionRow}`}>
+                <h3>
+                    <strong>{t("funcionalidades.sections.plans.titleStrong")}</strong>{" "}
+                    {t("funcionalidades.sections.plans.titleRest")}
+                </h3>
+                <p>{t("funcionalidades.sections.plans.description")}</p>
+                <ul>
+                    <li>{t("funcionalidades.sections.plans.listOne")}</li>
+                    <li>{t("funcionalidades.sections.plans.listTwo")}</li>
+                    <li>{t("funcionalidades.sections.plans.listThree")}</li>
+                </ul>
+            </PageSection>
+            <PageSection
+                img={pic7}
+                rowReverse
+                className={`${style.sectionRowReverse}`}
+            >
+                <h3>
+                    <strong>{t("funcionalidades.sections.management.titleStrong")}</strong>
+                    {t("funcionalidades.sections.management.titleRest")}
+                </h3>
+                <p>{t("funcionalidades.sections.management.description")}</p>
+                <ul>
+                    <li>{t("funcionalidades.sections.management.listOne")}</li>
+                    <li>{t("funcionalidades.sections.management.listTwo")}</li>
+                    <li>{t("funcionalidades.sections.management.listThree")}</li>
+                </ul>
+            </PageSection>
+            <PageEnd
+                className={style.endBanner}
+                text={t("funcionalidades.endBanner.text")}
+                cta={t("funcionalidades.endBanner.button")}
+            />
         </main>
     )
 }
