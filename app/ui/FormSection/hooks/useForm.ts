@@ -1,8 +1,5 @@
 import type { EmailPayload } from "~/types/services/Email.model"
 import { useState, type ChangeEvent, type FormEvent } from "react"
-import { constantsENV } from "~/config/constants"
-import useApi from "~/hooks/useApi"
-import emailService from "~/services/email.service"
 
 const ES_PREFIX = "+34"
 const AR_PREFIX = "+54"
@@ -18,7 +15,7 @@ const getInitialState = (locale?: string) => ({
     comment: ""
 })
 
-type FormData = ReturnType<typeof getInitialState>
+export type FormData = ReturnType<typeof getInitialState>
 
 export function generarMailContacto(
     data: FormData,
@@ -100,18 +97,6 @@ export const useForm = (locale?: string) => {
     const [data, setData] = useState<FormData>(getInitialState(locale))
     const [errors, setErrors] = useState<string[]>([])
 
-    const {
-        data: emailResponse,
-        loading: sendingEmail,
-        error: emailError,
-        call: sendEmail
-    } = useApi<EmailPayload, EmailPayload>(emailService.post, {
-        autoCall: false,
-        onSuccess: () => {
-        setData(getInitialState(locale))
-        }
-    })
-
     const handleChange = (
         e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
     ) => {
@@ -131,36 +116,29 @@ export const useForm = (locale?: string) => {
     }
 
     const hasError = (field: string) => errors.includes(field)
+    
+    const resetForm = () => {
+        setData(getInitialState(locale))
+        setErrors([])
+    }
 
-    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-
-        if (validate()) {
-        try {
-            const emailPayload = generarMailContacto(data, [
-            constantsENV.EMAIL_DESTINATION
-            ])
-
-            await sendEmail(emailPayload)
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        } catch (error: any) {
-            console.error("Error sending email:", error)
-
-            if (error?.response?.status === 429) {
-            console.warn("Rate limit exceeded for email sending")
-            }
+    const getErrorMessage = (data: any): string => {
+        if (typeof data?.message === 'string') {
+            return data.message
         }
+        if (data?.statusText) {
+            return data.statusText
         }
+        return "Error desconocido"
     }
 
     return {
         data,
         errors,
         handleChange,
-        handleSubmit,
+        validate,
         hasError,
-        sendingEmail,
-        emailError,
-        emailResponse
+        resetForm,
+        getErrorMessage
     }
 }
