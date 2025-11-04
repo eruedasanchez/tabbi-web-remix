@@ -16,6 +16,8 @@ const DeviceCard = ({
             loading="lazy"
             draggable={false}
             className={style.img}
+            alt=""
+            aria-hidden
             />
         </div>
         <div className={style.container}>
