@@ -18,7 +18,7 @@ const Home = () => {
     const scrollToFormSection = () => {
         const seccion = document.getElementById("form-section")
         if (seccion) {
-        seccion.scrollIntoView({ behavior: "smooth" })
+            seccion.scrollIntoView({ behavior: "smooth" })
         }
     }
 
@@ -28,30 +28,30 @@ const Home = () => {
     
     return (
         <main className={style.homeContainer}>
-        <div className={style.homeBg}>
-            <PageHero
-            children={homeAsset}
-            className={style.homeHero}
-            title={t("home.homeSection.home.title")}
-            cto={t("home.homeSection.home.button")}
+            <div className={style.homeBg}>
+                <PageHero
+                    children={homeAsset}
+                    className={style.homeHero}
+                    title={t("home.homeSection.home.title")}
+                    cto={t("home.homeSection.home.button")}
+                />
+                {locale === "es" && <Banner />}
+                <PageSection img={productAsset} className={style.productSection}>
+                    <h3>{t("home.homeSection.product.title")}</h3>
+                    <p>{t("home.homeSection.product.description")}</p>
+                    <Button
+                        value={t("home.homeSection.product.button")}
+                        onClick={() => scrollToFormSection()}
+                    />
+                </PageSection>
+            </div>
+            <About />
+            <Integrations />
+            <PageEnd
+                className={style.endBanner}
+                text={t("home.endBanner.text")}
+                cta={t("home.endBanner.button")}
             />
-            {locale === "es" && <Banner />}
-            <PageSection img={productAsset} className={style.productSection}>
-            <h3>{t("home.homeSection.product.title")}</h3>
-            <p>{t("home.homeSection.product.description")}</p>
-            <Button
-                value={t("home.homeSection.product.button")}
-                onClick={() => scrollToFormSection()}
-            />
-            </PageSection>
-        </div>
-        <About />
-        <Integrations />
-        <PageEnd
-            className={style.endBanner}
-            text={t("home.endBanner.text")}
-            cta={t("home.endBanner.button")}
-        />
         </main>
     )
 }

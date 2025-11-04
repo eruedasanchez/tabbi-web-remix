@@ -2,13 +2,19 @@ import style from "./DefaultLoader.module.css"
 
 const DefaultLoader = () => {
     return (
-        <main className={style.skeletonContainer}>
-            <div className={`${style.skeletonBlock} ${style.h1Block}`}></div>
-            <div className={`${style.skeletonBlock} ${style.pBlock}`}></div>
-            <div className={`${style.skeletonBlock} ${style.accentBlock}`}></div>
-        </main>
+        <article className={style.article}>
+            <div className={style.container}>
+                <div className={`${style.skeletonBlock} ${style.title}`} />
+                <div className={`${style.skeletonBlock} ${style.text}`} />
+                <div className={`${style.skeletonBlock} ${style.button}`}/>
+            </div>
+            <div className={style.children}>
+                <div className={style.content}>
+                    <div className={`${style.skeletonBlock} ${style.image}`} />
+                </div>
+            </div>
+        </article>
     )
-
 }
 
 export default DefaultLoader
