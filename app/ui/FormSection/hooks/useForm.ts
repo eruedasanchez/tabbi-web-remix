@@ -1,5 +1,5 @@
 import type { EmailPayload } from "~/types/services/Email.model"
-import { useState, type ChangeEvent, type FormEvent } from "react"
+import { useState, type ChangeEvent } from "react"
 
 const ES_PREFIX = "+34"
 const AR_PREFIX = "+54"
