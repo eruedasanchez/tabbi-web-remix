@@ -1,5 +1,6 @@
 import { Outlet, useNavigation, useParams } from "react-router-dom"
 import { Header, Footer, FormSection } from "~/ui"
+import { emailAction } from "~/actions/email.action"
 import style from "./styles/_app.module.css"
 
 export default function Layout() {
@@ -32,3 +33,5 @@ export default function Layout() {
         </div>
     )
 }
+
+export const action = emailAction

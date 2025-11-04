@@ -1,9 +1,15 @@
-import { useParams } from "react-router-dom"
-import { useForm } from "./hooks/useForm"
+import { useEffect, type FormEvent } from "react"
+import { useParams, useFetcher } from "react-router-dom"
+import { generarMailContacto, useForm } from "./hooks/useForm"
 import { getTranslations } from "~/i18n"
+import { constantsENV } from "~/config/constants"
 import style from "./FormSection.module.css"
 
 const FormSection = () => {
+    const fetcher = useFetcher()
+    const isSubmitting = fetcher.state !== "idle"
+    const submissionData = fetcher.data as { ok?: boolean, error?: string, message?: string} | undefined
+    
     const { locale: currentLocale } = useParams()
     const locale = currentLocale || 'es' 
     const { t } = getTranslations(locale)
@@ -13,12 +19,55 @@ const FormSection = () => {
         errors,
         hasError,
         handleChange,
-        handleSubmit,
-        sendingEmail,
-        emailError,
-        emailResponse
+        validate,
+        resetForm,
+        getErrorMessage
     } = useForm(locale)
 
+    useEffect(() => {
+        if (fetcher.state === "idle" && submissionData) {
+            if (submissionData.ok) {
+                resetForm()
+            }
+        }
+    }, [
+        fetcher.state, 
+        submissionData, 
+        resetForm
+    ])
+
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        
+        if (validate()) {
+            const emailPayload = generarMailContacto(data, [
+                constantsENV.EMAIL_DESTINATION
+            ])
+            
+            fetcher.submit(emailPayload as any, {
+                method: "POST",
+                action: "."
+            })
+        }
+    }
+
+    const isSending = isSubmitting
+    const isSuccess = fetcher.state === "idle" && submissionData?.ok
+    const isError = fetcher.state === "idle" && !submissionData?.ok && submissionData?.error 
+
+    let displayedError = ""
+    if (isError) {
+        const errMsg = submissionData?.error || getErrorMessage(submissionData)
+        const rateLimitMessage = "Has enviado demasiados emails. Espera 5 minutos antes de intentar nuevamente"
+        
+        if (errMsg.includes("429") || errMsg.includes("Demasiadas solicitudes")) {
+            displayedError = rateLimitMessage
+            
+        } else {
+            displayedError = `Error al enviar el mail: ${errMsg}`
+        }
+    }
+    
     return (
         <section className={style.formSection} id="form-section">
         <form className={style.form} onSubmit={handleSubmit}>
@@ -124,20 +173,17 @@ const FormSection = () => {
             />
             </div>
 
-            <button type="submit" disabled={sendingEmail}>
-            {sendingEmail ? "Enviando..." : "Enviar"}
+            <button type="submit" disabled={isSending}>
+            {isSending ? "Enviando..." : "Enviar"}
             </button>
 
             {errors.length > 0 ? (
             <p className={style.formError}>(!) Todos los campos son requeridos</p>
-            ) : emailResponse && !emailError ? (
+            ) : isSuccess ? (
             <p className={style.formSuccess}>¡Email enviado exitosamente!</p>
-            ) : emailError ? (
+            ) : isError ? (
             <p className={style.formError}>
-                {emailError.includes("429") ||
-                emailError.includes("Demasiadas solicitudes")
-                ? "Has enviado demasiados emails. Espera 5 minutos antes de intentar nuevamente."
-                : `Error al enviar el email: ${emailError}`}
+                {displayedError}
             </p>
             ) : null}
         </form>
