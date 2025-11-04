@@ -33,6 +33,8 @@ const PageSection = ({
                 src={img}
                 loading="lazy"
                 draggable="false"
+                alt=""
+                aria-hidden
                 />
             ) : (
                 img

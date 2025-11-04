@@ -32,6 +32,8 @@ const AboutCard = ({
                 loading="lazy"
                 draggable="false"
                 className={style.icon}
+                alt=""
+                aria-hidden
             />
             </div>
             <h4 className={style.title}>{title}</h4>

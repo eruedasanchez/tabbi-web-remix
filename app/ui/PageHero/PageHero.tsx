@@ -62,6 +62,8 @@ const PageHero = ({
                                 fetchPriority="high"
                                 draggable="false"
                                 className={style.image}
+                                alt=""
+                                aria-hidden
                             />
                         ) : (
                             children
