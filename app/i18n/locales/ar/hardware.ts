@@ -33,7 +33,7 @@ export const hardware = {
                 third: "Pantalla principal: 15.6 FHD",
                 fourth: "Pantalla del cliente",
                 fifth: "CFD estándar (solo pantalla HD de 10.1 y 1280x800)",
-                sitxth: "CFD premium (10.1 HD de 1280x800, táctil, cámara con código QR, NFC)",
+                sixth: "CFD premium (10.1 HD de 1280x800, táctil, cámara con código QR, NFC)",
             }
         },
         p30: {
